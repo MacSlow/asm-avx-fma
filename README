@@ -1,0 +1,45 @@
+This an example of using the AVX2/AVX512 SIMD-instructions on 64-bit x86 CPUs.
+Computation-wise it does nothing of real significance. It is merely a small
+project to remind me of how to hook up C (C++) with the more advanced SIMD-
+-instructions of modern x86 CPUs from AMD and intel. I am not a fan of the
+compiler-intrinsics for SIMD, since they look pretty alien next to regular C
+or C++ code. Having a dedicated few assembler-files is more honest and straight
+forward in my opinion.
+
+The dependencies are modest:
+
+ * make 4.11
+ * gcc 9.1
+ * nasm 2.11.08
+
+I compiles and runs under recent Linux-distributions (e.g. Ubuntu 18.04 and newer)
+and BSD.
+
+For info about the CPU-instruction 'cpuid' see:
+
+ * https://www.felixcloutier.com/x86/cpuid
+
+How to try it out (from machine with 'AMD Ryzen 7 PRO 7840U'):
+
+ 1> make
+ 1> ./mainFMA
+ Your CPU does have AVX2's FMA capability.
+ 1. result: 102.000000
+ 2. result: 300.000000
+ 3. result: 120.000000
+ 4. result: 340.000000
+ 5. result: 149.000000
+ 6. result: 85.000000
+ 7. result: 106.000000
+ 8. result: 223.000000
+ 9. result: 1061.000000
+ 10. result: 181.000000
+ 11. result: 120.000000
+ 12. result: 340.000000
+ 13. result: 1833.000000
+ 14. result: 396.000000
+ 15. result: 2849.000000
+ 16. result: 5489.000000
+ Your CPU does have AVX512F capability.
+
+Feedback and patches are welcome.

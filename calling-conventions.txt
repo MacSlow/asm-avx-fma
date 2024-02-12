@@ -1,0 +1,19 @@
+;
+; MS x64 calling conventions:
+;  * rcx, rdx, r8, r9 (arguments: first four ints/pointers)
+;  * xmm0, xmm1, xmm2, xmm3 (arguments: first four floats/doubles)
+;  * rax (return: int/long/pointer)
+;  * xmm0 (return: float/double)
+;  * rax, rcx, rdx, r8, r9, r10, r11 (volatile, caller-saved)
+;  * rbx, rbp, rdi, rsi, rsp, r12, r13, r14, r15 (non-volatile, callee-saved)
+;  * "shadow-space" (32 bytes) needs to be allocated on the stack always by the caller!
+;
+;
+; Linux/OSX/FreeBSD/Solaris x64 calling conventions:
+;  * rdi, rsi, rdx, rcx, r8, r9 (arguments: first six ints/pointers)
+;  * xmm0..xmm7 (arguments: first 8 floats/doubles)
+;  * rax (return: int/long/pointer)
+;  * xmm0 (return: float/double)
+;  * rbp, rbx, r12, r13, r14, r15 (non-volatile, callee-saved)
+;  * no use of "shadow-space" convention on stack
+;
